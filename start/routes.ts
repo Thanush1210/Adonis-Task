@@ -29,13 +29,13 @@ Route.group(() => {
   Route.post("", "CustomersController.storeCustomer");
   Route.patch("/:id", "CustomersController.updateCustomerName");
   Route.delete("/:id", "CustomersController.deleteCustomer");
-}).prefix("/customers");
+}).prefix("/customers").middleware("key");
 
 Route.group(() => {
   Route.get("", "OrdersController.showAllOrders");
   Route.post("", "OrdersController.storeOrder");
   Route.patch("/:id", "OrdersController.updateOrderQuantity");
   Route.delete("/:id", "OrdersController.deleteOrder");
-}).prefix("orders");
+}).prefix("orders").middleware("key");
 
-Route.get("/join", "JoinsController.joinUser");
+Route.get("/join", "JoinsController.joinUser").middleware("key");
